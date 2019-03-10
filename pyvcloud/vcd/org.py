@@ -1592,7 +1592,7 @@ class Org(object):
             result.append({'name': v.name, 'href': v.href})
         return result
 
-  def get_all_metadata(self):
+    def get_all_metadata(self):
         """Fetch all metadata entries of the org.
          :return: an object containing EntityType.METADATA XML data which
             represents the metadata entries associated with the org.
