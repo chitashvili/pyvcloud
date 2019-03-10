@@ -60,7 +60,23 @@ class System(object):
         org_params = E.AdminOrg(
             E.FullName(full_org_name),
             E.IsEnabled(is_enabled),
-            E.Settings,
+            E.Settings(
+                E.OrgGeneralSettings(
+                    E.CanPublishCatalogs(False),
+                    E.CanPublishExternally(False),
+                    E.CanSubscribe(False),
+                    E.DeployedVMQuota(0),
+                    E.StoredVmQuota(0),
+                    E.UseServerBootSequence(False),
+                    E.DelayAfterPowerOnSeconds(0)),
+                E.VAppLeaseSettings(
+                    E.DeleteOnStorageLeaseExpiration(True),
+                    E.DeploymentLeaseSeconds(0),
+                    E.StorageLeaseSeconds(0),
+                    E.PowerOffOnRuntimeLeaseExpiration(True)),
+                E.VAppTemplateLeaseSettings(
+                    E.DeleteOnStorageLeaseExpiration(True),
+                    E.StorageLeaseSeconds(0))),
             name=org_name)
         return self.client.post_linked_resource(
             self.admin_resource, RelationType.ADD, EntityType.ADMIN_ORG.value,
