@@ -1602,7 +1602,7 @@ class Org(object):
         return self.client.get_linked_resource(
             self.resource, RelationType.DOWN, EntityType.METADATA.value)
 
-     def get_metadata_value(self, key, domain=MetadataDomain.GENERAL):
+    def get_metadata_value(self, key, domain=MetadataDomain.GENERAL):
         """Fetch a metadata value identified by the domain and key.
          :param str key: key of the value to be fetched.
         :param client.MetadataDomain domain: domain of the value to be fetched.
@@ -1614,7 +1614,7 @@ class Org(object):
                             resource=self.get_all_metadata())
         return metadata.get_metadata_value(key, domain)
 
-     def set_metadata(self,
+    def set_metadata(self,
                      key,
                      value,
                      domain=MetadataDomain.GENERAL,
@@ -1644,7 +1644,7 @@ class Org(object):
                                      metadata_value_type=metadata_value_type,
                                      use_admin_endpoint=True)
 
-     def set_multiple_metadata(self,
+    def set_multiple_metadata(self,
                               key_value_dict,
                               domain=MetadataDomain.GENERAL,
                               visibility=MetadataVisibility.READ_WRITE,
@@ -1672,7 +1672,7 @@ class Org(object):
             metadata_value_type=metadata_value_type,
             use_admin_endpoint=True)
 
-     def remove_metadata(self, key, domain=MetadataDomain.GENERAL):
+    def remove_metadata(self, key, domain=MetadataDomain.GENERAL):
         """Remove a metadata entry from the org.
          Only admins can perform this operation.
          :param str key: key of the metadata to be removed.
